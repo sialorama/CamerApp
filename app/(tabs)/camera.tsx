@@ -1,12 +1,13 @@
+import {AntDesign} from '@expo/vector-icons'
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function Camera() {
   const [facing, setFacing] = useState<CameraType>('back');
   const [permission, requestPermission] = useCameraPermissions();
   const [photo, setPhoto] = useState<any>(null);
-  const cameraRef = useRef<CameraView | null>(null)>;
+  const cameraRef = useRef<CameraView | null>(null);
   if (!permission) {
     // Camera permissions are still loading.
     return <View />;
